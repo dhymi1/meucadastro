@@ -1,64 +1,303 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro 🚍🗓</title>
-  
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        
- 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-                <style>   
-                
-                
-                
-                                            #successMessage {
-                                                        display: none;
-                                                                }
-                                                                        
-                                                                                /* Esconde o texto do rodapé */
-                                                                                        #rodapé {
-                                                                                                    display: none;
-                                                                                                            }
-                                                                                                                    img {
-                                                                                                                                height: 0px;
-                                                                                                                                            width: 0px;
-                                                                                                                                                    }
-                                    
-                
- 
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        #successMessage {
+            display: none;
+        }
+
+        /* Esconde o texto do rodapé */
+        #rodapé {
+            display: none;
+        }
+
+        img {
+            height: 0px;
+            width: 0px;
+        }
+
+
+
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            transition: transform 0.8s ease;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            overflow: hidden; /* Evita rolagem da página principal */
+            min-height: 93vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #222222;
         }
-        .iframe-container {
-            width: 100%;
-            height: 100%;
-            overflow: 100%; /* Adiciona rolagem automática quando necessário */
-            scroll-behavior: smooth; /* Suaviza a rolagem */
+
+        form {
+            width: 90%;
+            max-width: 350px;
+            padding: 10px;
+            background-color: none;
+            //   background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
-        iframe {
+
+        h2 {
+            padding: 7px;
+            font-size: 26px;
+        }
+
+        h1 {
+            border: 2px solid #ff6600;
+            border-radius: 20px;
+            padding: 10px;
+            color: #3498db;
+            font-size: 35px;
+            margin: 5px 0;
+            display: inline-block;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+        }
+
+        label {
+            margin-bottom: 7px;
             width: 100%;
-            height: 100%;
+            box-sizing: border-box;
+            color: White;
+            padding: 4px;
+        }
+
+        select {
+            margin-bottom: 7px;
+            width: 100%;
+            box-sizing: border-box;
+            color: blue;
+
+        }
+
+        input {
+            margin-bottom: 7px;
+            width: 100%;
+            box-sizing: border-box;
+            color: #89ec5b;
+            padding: 10px;
+            background-color: #808080;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .whatsapp-button,
+        input[type="submit"] {
+            margin-top: 15px;
+            padding: 12px;
             border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .whatsapp-button {
+            background-color: #25D366;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: #4285f4;
+            flex-direction: column;
+        }
+
+        .whatsapp-button:hover,
+        input[type="submit"]:hover {
+            background-color: #333;
+        }
+
+        form {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .whatsapp-button,
+        input[type="submit"] {
+            transition: background-color 0.6s ease, transform 0.6s ease;
+        }
+
+        .whatsapp-button:hover,
+        input[type="submit"]:hover {
+            background-color: #333;
+            transform: scale(1.05);
+        }
+
+        img {
+            border-radius: 5px;
+        }
+
+        .logo-animation img {
+            border: 0px solid #ff6600;
+            border-radius: 5px;
+            padding: 5px;
+            max-width: 100%;
         }
     </style>
+
+
 </head>
+
 <body>
-    <div class="iframe-container">
-        <iframe src="http://meuapponline.wuaze.com/index.php" title="Cadastro"></iframe>
-    </div>
-    <div class="footer">
-        <img src="background.jpg" alt=".">
-    </div>
+    <form action="#" method="post" style="max-width: 420px; height: auto; margin: 10px;">
+
+
+
+        <a href="home.html">
+            <img src="banner.png" alt="Felipe Viagem Logo">
+            </div>
+        </a>
+
+
+        <div class="banner">
+            <h2 style="text-align: center; margin-top: 20px; background: #89ec5b; color: #000; padding: 10px; border-radius: 8px 8px 0 0;"><b>CADASTRO</b></h2>
+            <b>
+                <hh style="color: #fff; text-size: 10px;" <b>O valor da reserva é descontado do valor total da passagem.
+            </b> </hh>
+            <div>
+                <label for="name"><b>Nome:</label>
+                <input type="text" id="name" name="name" placeholder="Nome" required>
+
+                <label for="rg_cpf">RG:</label>
+                <input type="number" id="rg_cpf" name="rg_cpf" placeholder="RG"="rg_cpf" required>
+
+                <label for="birthdate">Data de Nascimento:</label>
+                <input type="number" id="birthdate" name="birthdate" placeholder="DD/MM/AAAA" required>
+
+                <label for="embarkation">Cidade de Embarque:</label>
+                <input type="text" id="embarkation" name="embarkation" placeholder="Cidade de Embarque" required>
+
+                <label for="disembarkation">Cidade de Desembarque:</label>
+                <input type="text" id="disembarkation" name="disembarkation" placeholder="Cidade de Desembarque" required>
+
+                <label for="travel_date">Data da Viagem (Dia/Mês):</label>
+                <input type="date" id="travel_date" name="travel_date" placeholder="DD/MM" required>
+
+                <label for="whatsapp">Contato com DDD:</label>
+                <input type="number" id="whatsapp" name="whatsapp" placeholder="de preferência se for whatsapp"="whatsapp" required>
+
+                <button class="whatsapp-button" onclick="sendWhatsAppMessage()">Enviar pelo WhatsApp</button>
+
+    </form>
+
+    <script>
+        function sendWhatsAppMessage() {
+            const name = document.getElementById('name').value;
+            const rgCpf = document.getElementById('rg_cpf').value;
+            document.body.style.transform = "scale(0.1)";
+            setTimeout(function() {
+                document.body.style.transform = "scale(1)";
+            }, 100);
+
+            const birthdateInput = document.getElementById('birthdate');
+            const birthdate = formatBirthdate(birthdateInput.value);
+
+            const embarkation = document.getElementById('embarkation').value;
+            const disembarkation = document.getElementById('disembarkation').value;
+
+            const travelDateInput = document.getElementById('travel_date');
+            const travelDate = formatTravelDate(travelDateInput.value);
+            let whatsapp = document.getElementById('whatsapp').value;
+
+            // Remover espaços, traços e outros caracteres não numéricos
+            whatsapp = whatsapp.replace(/\D/g, '');
+
+            const additionalText = '\n\n ';
+
+            const message = `> *Cadastro da Viagem*\n*Nome*: ${name}\n*RG/CPF*: ${rgCpf}\n*Data de Nascimento*: ${birthdate}\n*whatsapp*: ${whatsapp}\n*Cidade de Embarque*: ${embarkation}\n*Cidade de Desembarque*: ${disembarkation}\n*Data da Viagem*: ${travelDate}${additionalText}`;
+
+            const whatsappLink = `https://wa.me/5591985322122?text=${encodeURIComponent(message)}`;
+            window.open(whatsappLink, '_blank');
+            // Abrir o vídeo do YouTube no aplicativo do YouTube após 2 segundos
+            setTimeout(function() {
+                window.open("https://felipeviagem.netlify.app");
+            }, 100); // 2000 milissegundos = 2 segundos
+        }
+
+        function formatBirthdate(input) {
+            const regex = /(\d{2})(\d{2})(\d{4})/;
+            return input.replace(regex, '$1/$2/$3');
+        }
+
+        function formatTravelDate(input) {
+            const regex = /(\d{2})(\d{2})(\d{4})/;
+            return input.replace(regex, '$1/$2/$3');
+        }
+    </script>
+
+
+
+
+
+
+    <!-- Adicionando Bootstrap JS e Popper.js via CDN -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+    <script>
+        // Previne zoom com rolagem do mouse
+        document.addEventListener('wheel', function(event) {
+            if (event.ctrlKey) {
+                event.preventDefault();
+            }
+        }, {
+            passive: false
+        });
+
+        // Previne zoom com atalhos de teclado
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && (event.key === '=' || event.key === '-' || event.key === '0')) {
+                event.preventDefault();
+            }
+        });
+
+
+
+        // Previne zoom com gesto de pinça (pinch-to-zoom)
+        document.addEventListener('touchstart', function(event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, {
+            passive: false
+        });
+
+        document.addEventListener('touchmove', function(event) {
+            if (event.scale !== 1) {
+                event.preventDefault();
+            }
+        }, {
+            passive: true
+        });
+    </script>
+
 
 </body>
+
 </html>
