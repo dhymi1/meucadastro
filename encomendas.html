@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Encomenda NayaraTur🚍🗓</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        #successMessage {
+            display: none;
+        }
+
+        #rodapé {
+            display: none;
+        }
+
+        img {
+            height: 0px;
+            width: 0px;
+        }
+
+        body {
+            transition: transform 0.8s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 93vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #222222;
+        }
+
+        form {
+            width: 90%;
+            max-width: 350px;
+            padding: 10px;
+            background-color: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            padding: 7px;
+            font-size: 26px;
+        }
+
+        h1 {
+            border: 2px solid #ff6600;
+            border-radius: 20px;
+            padding: 10px;
+            color: #3498db;
+            font-size: 35px;
+            margin: 5px 0;
+            display: inline-block;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+        }
+
+        label {
+            margin-bottom: 7px;
+            width: 100%;
+            box-sizing: border-box;
+            color: White;
+            padding: 4px;
+        }
+
+        select {
+            margin-bottom: 7px;
+            width: 100%;
+            box-sizing: border-box;
+            color: blue;
+        }
+
+        input, textarea {
+            margin-bottom: 7px;
+            width: 100%;
+            box-sizing: border-box;
+            color: #89ec5b;
+            padding: 10px;
+            background-color: #808080;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .whatsapp-button, input[type="submit"] {
+            margin-top: 15px;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .whatsapp-button {
+            background-color: #25D366;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: #4285f4;
+            flex-direction: column;
+        }
+
+        .whatsapp-button:hover, input[type="submit"]:hover {
+            background-color: #333;
+        }
+
+        form {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .whatsapp-button, input[type="submit"] {
+            transition: background-color 0.6s ease, transform 0.6s ease;
+        }
+
+        .whatsapp-button:hover, input[type="submit"]:hover {
+            background-color: #333;
+            transform: scale(1.05);
+        }
+
+        img {
+            border-radius: 5px;
+        }
+
+        .logo-animation img {
+            border: 0px solid #ff6600;
+            border-radius: 5px;
+            padding: 5px;
+            max-width: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form action="#" method="post" style="max-width: 420px; height: auto; margin: 10px;">
+        <a href="home.html">
+            <img src="banner.png" alt="Felipe Viagem Logo">
+        </a>
+
+        <div class="banner">
+            <h2 style="text-align: center; margin-top: 20px; background: #89ec5b; color: #000; padding: 10px; border-radius: 8px 8px 0 0;"><b>CADASTRO</b></h2>
+            <b style="color: #fff; font-size: 10px;">
+                É necessário pagar 100% da encomenda ou ao menos 50% pra garantir a reserva da vaga!
+            </b>
+            <label for="sender_name"><b>Nome completo de quem vai entregar:</b></label>
+            <input type="text" id="sender_name" name="sender_name" placeholder="Nome Completo" required>
+
+            <label for="sender_rg"><b>RG de quem vai entregar:</b></label>
+            <input type="number" id="sender_rg" name="sender_rg" placeholder="RG" required>
+
+            <label for="sender_phone"><b>Telefone com DDD:</b></label>
+            <input type="tel" id="sender_phone" name="sender_phone" placeholder="Telefone com DDD" required>
+
+            <label for="receiver_name"><b>Nome completo de quem vai receber:</b></label>
+            <input type="text" id="receiver_name" name="receiver_name" placeholder="Nome Completo" required>
+
+            <label for="receiver_rg"><b>RG de quem vai receber:</b></label>
+            <input type="number" id="receiver_rg" name="receiver_rg" placeholder="RG" required>
+
+            <label for="receiver_phone"><b>Telefone com DDD:</b></label>
+            <input type="tel" id="receiver_phone" name="receiver_phone" placeholder="Telefone com DDD" required>
+
+            <label for="embarkation"><b>Local de Embarque:</b></label>
+            <input type="text" id="embarkation" name="embarkation" placeholder="Local de Embarque" required>
+
+            <label for="disembarkation"><b>Local de Desembarque:</b></label>
+            <input type="text" id="disembarkation" name="disembarkation" placeholder="Local de Desembarque" required>
+
+            <label for="travel_date"><b>Data da Viagem:</b></label>
+            <input type="text" id="travel_date" name="travel_date" placeholder="DD/MM/AAAA" required>
+
+            <label for="total_value"><b>Valor Total:</b></label>
+            <input type="number" id="total_value" name="total_value" placeholder="Valor Total" required>
+
+            <label for="observations"><b>Detalhe o que vai levar ou alguma observação:</b></label>
+            <textarea id="observations" name="observations" rows="4" placeholder="Detalhes ou Observações"></textarea>
+
+            <button class="whatsapp-button" type="button" onclick="sendWhatsAppMessage()">Enviar pelo WhatsApp</button>
+        </form>
+
+        <script>
+            function sendWhatsAppMessage() {
+                const senderName = document.getElementById('sender_name').value;
+                const senderRg = document.getElementById('sender_rg').value;
+                const senderPhone = document.getElementById('sender_phone').value;
+                const receiverName = document.getElementById('receiver_name').value;
+                const receiverRg = document.getElementById('receiver_rg').value;
+                const receiverPhone = document.getElementById('receiver_phone').value;
+                const embarkation = document.getElementById('embarkation').value;
+                const disembarkation = document.getElementById('disembarkation').value;
+                const travelDate = document.getElementById('travel_date').value;
+                const totalValue = document.getElementById('total_value').value;
+                const observations = document.getElementById('observations').value;
+
+                document.body.style.transform = "scale(0.1)";
+                setTimeout(function() {
+                    document.body.style.transform = "scale(1)";
+                }, 100);
+
+                const message = `> *Cadastro da Encomenda*\n*Nome (Entregador)*: ${senderName}\n*RG (Entregador)*: ${senderRg}\n*Telefone (Entregador)*: ${senderPhone}\n*Nome (Recebedor)*: ${receiverName}\n*RG (Recebedor)*: ${receiverRg}\n*Telefone (Recebedor)*: ${receiverPhone}\n*Local de Embarque*: ${embarkation}\n*Local de Desembarque*: ${disembarkation}\n*Data da Viagem*: ${travelDate}\n*Valor Total*: ${totalValue}\n*Observações*: ${observations}`;
+
+                const whatsappLink = `https://wa.me/5548999290582?text=${encodeURIComponent(message)}`;
+                window.open(whatsappLink, '_blank');
+
+                setTimeout(function() {
+                    window.open("https://nayaratur.com");
+                }, 100); // 100 milissegundos
+            }
+        </script>
+
+        <!-- Adicionando Bootstrap JS e Popper.js via CDN -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+        <script>
+            // Previne zoom com rolagem do mouse
+            document.addEventListener('wheel', function(event) {
+                if (event.ctrlKey) {
+                    event.preventDefault();
+                }
+            }, {
+                passive: false
+            });
+
+            // Previne zoom com atalhos de teclado
+            document.addEventListener('keydown', function(event) {
+                if (event.ctrlKey && (event.key === '=' || event.key === '-' || event.key === '0')) {
+                    event.preventDefault();
+                }
+            });
+
+            // Previne zoom com gesto de pinça (pinch-to-zoom)
+            document.addEventListener('touchstart', function(event) {
+                if (event.touches.length > 1) {
+                    event.preventDefault();
+                }
+            }, {
+                passive: false
+            });
+
+            document.addEventListener('touchmove', function(event) {
+                if (event.scale !== 1) {
+                    event.preventDefault();
+                }
+            }, {
+                passive: true
+            });
+        </script>
+    </body>
+</html>
