@@ -195,35 +195,42 @@
             <button class="whatsapp-button" type="button" onclick="sendWhatsAppMessage()">Enviar pelo WhatsApp</button>
         </form>
 
-        <script>
-            function sendWhatsAppMessage() {
-                const senderName = document.getElementById('sender_name').value;
-                const senderRg = document.getElementById('sender_rg').value;
-                const senderPhone = document.getElementById('sender_phone').value;
-                const receiverName = document.getElementById('receiver_name').value;
-                const receiverRg = document.getElementById('receiver_rg').value;
-                const receiverPhone = document.getElementById('receiver_phone').value;
-                const embarkation = document.getElementById('embarkation').value;
-                const disembarkation = document.getElementById('disembarkation').value;
-                const travelDate = document.getElementById('travel_date').value;
-                const totalValue = document.getElementById('total_value').value;
-                const observations = document.getElementById('observations').value;
+<script>
+    function sendWhatsAppMessage() {
+        const senderName = document.getElementById('sender_name').value;
+        const senderRg = document.getElementById('sender_rg').value;
+        const senderPhone = document.getElementById('sender_phone').value;
+        const receiverName = document.getElementById('receiver_name').value;
+        const receiverRg = document.getElementById('receiver_rg').value;
+        const receiverPhone = document.getElementById('receiver_phone').value;
+        const embarkation = document.getElementById('embarkation').value;
+        const disembarkation = document.getElementById('disembarkation').value;
+        const travelDate = document.getElementById('travel_date').value;
+        const totalValue = document.getElementById('total_value').value;
+        const observations = document.getElementById('observations').value;
 
-                document.body.style.transform = "scale(0.1)";
-                setTimeout(function() {
-                    document.body.style.transform = "scale(1)";
-                }, 100);
+        // Verifica se todos os campos foram preenchidos
+        if (!senderName || !senderRg || !senderPhone || !receiverName || !receiverRg || !receiverPhone || !embarkation || !disembarkation || !travelDate || !totalValue) {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            return;
+        }
 
-                const message = `> *Cadastro da Encomenda*\n*Nome (Entregador)*: ${senderName}\n*RG (Entregador)*: ${senderRg}\n*Telefone (Entregador)*: ${senderPhone}\n*Nome (Recebedor)*: ${receiverName}\n*RG (Recebedor)*: ${receiverRg}\n*Telefone (Recebedor)*: ${receiverPhone}\n*Local de Embarque*: ${embarkation}\n*Local de Desembarque*: ${disembarkation}\n*Data da Viagem*: ${travelDate}\n*Valor Total*: ${totalValue}\n*Observações*: ${observations}`;
+        document.body.style.transform = "scale(0.1)";
+        setTimeout(function() {
+            document.body.style.transform = "scale(1)";
+        }, 100);
 
-                const whatsappLink = `https://wa.me/5548999290582?text=${encodeURIComponent(message)}`;
-                window.open(whatsappLink, '_blank');
+        const message = `> *Cadastro da Encomenda*\n*Nome (Entregador)*: ${senderName}\n*RG (Entregador)*: ${senderRg}\n*Telefone (Entregador)*: ${senderPhone}\n*Nome (Recebedor)*: ${receiverName}\n*RG (Recebedor)*: ${receiverRg}\n*Telefone (Recebedor)*: ${receiverPhone}\n*Local de Embarque*: ${embarkation}\n*Local de Desembarque*: ${disembarkation}\n*Data da Viagem*: ${travelDate}\n*Valor Total*: ${totalValue}\n*Observações*: ${observations}`;
 
-                setTimeout(function() {
-                    window.open("https://nayaratur.com");
-                }, 100); // 100 milissegundos
-            }
-        </script>
+        const whatsappLink = `https://wa.me/5548999290582?text=${encodeURIComponent(message)}`;
+        window.open(whatsappLink, '_blank');
+
+        setTimeout(function() {
+            window.open("https://nayaratur.com");
+        }, 100); // 100 milissegundos
+    }
+</script>
+
 
         <!-- Adicionando Bootstrap JS e Popper.js via CDN -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
