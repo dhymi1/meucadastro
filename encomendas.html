@@ -155,7 +155,7 @@
         </a>
 
         <div class="banner">
-            <h2 style="text-align: center; margin-top: 20px; background: #89ec5b; color: #000; padding: 10px; border-radius: 8px 8px 0 0;"><b>CODIGO DA ENCOMENDA</b></h2>
+            <h2 style="text-align: center; margin-top: 20px; background: #89ec5b; color: #000; padding: 10px; border-radius: 8px 8px 0 0;"><b>CADASTRO</b></h2>
             <b style="color: #fff; font-size: 10px;">
                 É necessário pagar 100% da encomenda ou ao menos 50% pra garantir a reserva da vaga!
             </b>
@@ -313,9 +313,9 @@
         document.body.style.transform = "scale(0.1)";
         setTimeout(function() {
             document.body.style.transform = "scale(1)";
-        }, 100);
+        }, 10);
 
-        const message = `> *Cadastro da Encomenda ${uniqueNumber}*\n*Nome (Entregador)*: ${senderName}\n*RG (Entregador)*: ${senderRg}\n*Telefone (Entregador)*: ${senderPhone}\n*Nome (Recebedor)*: ${receiverName}\n*RG (Recebedor)*: ${receiverRg}\n*Telefone (Recebedor)*: ${receiverPhone}\n*Local de Embarque*: ${embarkation}\n*Local de Desembarque*: ${disembarkation}\n*Data da Viagem*: ${travelDate}\n*Valor Total*: ${totalValue}\n*Observações*: ${observations}`;
+        const message = `> *Codigo da Encomenda ${uniqueNumber}*\n*Nome (Entregador)*: ${senderName}\n*RG (Entregador)*: ${senderRg}\n*Telefone (Entregador)*: ${senderPhone}\n*Nome (Recebedor)*: ${receiverName}\n*RG (Recebedor)*: ${receiverRg}\n*Telefone (Recebedor)*: ${receiverPhone}\n*Local de Embarque*: ${embarkation}\n*Local de Desembarque*: ${disembarkation}\n*Data da Viagem*: ${travelDate}\n*Valor Total*: ${totalValue}\n*Observações*: ${observations}`;
 
         const whatsappLink = `https://wa.me/5548999290582?text=${encodeURIComponent(message)}`;
         window.open(whatsappLink, '_blank');
