@@ -271,5 +271,61 @@
                 passive: true
             });
         </script>
+
+<script>
+    function generateUniqueNumber() {
+        let uniqueNumber = Math.floor(10000 + Math.random() * 90000) + "N";
+        return uniqueNumber;
+    }
+
+    function updateTitleWithNumber() {
+        const titleElement = document.querySelector('h2');
+        const randomNumber = generateUniqueNumber();
+        titleElement.innerHTML = `<b>CADASTRO ${randomNumber}</b>`;
+    }
+
+    // Atualiza o título quando a página é carregada
+    window.onload = function() {
+        updateTitleWithNumber();
+    };
+
+    // Adicionando a função para gerar o número sempre que um novo cadastro for feito
+    function sendWhatsAppMessage() {
+        const senderName = document.getElementById('sender_name').value;
+        const senderRg = document.getElementById('sender_rg').value;
+        const senderPhone = document.getElementById('sender_phone').value;
+        const receiverName = document.getElementById('receiver_name').value;
+        const receiverRg = document.getElementById('receiver_rg').value;
+        const receiverPhone = document.getElementById('receiver_phone').value;
+        const embarkation = document.getElementById('embarkation').value;
+        const disembarkation = document.getElementById('disembarkation').value;
+        const travelDate = document.getElementById('travel_date').value;
+        const totalValue = document.getElementById('total_value').value;
+        const observations = document.getElementById('observations').value;
+        const uniqueNumber = generateUniqueNumber(); // Gera um novo número para o cadastro
+
+        // Verifica se todos os campos foram preenchidos
+        if (!senderName || !senderRg || !senderPhone || !receiverName || !receiverRg || !receiverPhone || !embarkation || !disembarkation || !travelDate || !totalValue) {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            return;
+        }
+
+        document.body.style.transform = "scale(0.1)";
+        setTimeout(function() {
+            document.body.style.transform = "scale(1)";
+        }, 100);
+
+        const message = `> *Cadastro da Encomenda ${uniqueNumber}*\n*Nome (Entregador)*: ${senderName}\n*RG (Entregador)*: ${senderRg}\n*Telefone (Entregador)*: ${senderPhone}\n*Nome (Recebedor)*: ${receiverName}\n*RG (Recebedor)*: ${receiverRg}\n*Telefone (Recebedor)*: ${receiverPhone}\n*Local de Embarque*: ${embarkation}\n*Local de Desembarque*: ${disembarkation}\n*Data da Viagem*: ${travelDate}\n*Valor Total*: ${totalValue}\n*Observações*: ${observations}`;
+
+        const whatsappLink = `https://wa.me/5548999290582?text=${encodeURIComponent(message)}`;
+        window.open(whatsappLink, '_blank');
+
+        setTimeout(function() {
+            window.open("https://nayaratur.com");
+        }, 100); // 100 milissegundos
+    }
+</script>
+
+
     </body>
 </html>
