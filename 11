@@ -1,0 +1,123 @@
+#include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
+
+// Configurações da rede WiFi
+const char* ssid = "meuford";
+const char* password = "88447914@";
+
+// URLs para as solicitações HTTP
+const char* url1 = "http://192.168.1.132/updateesp8266/startstop";
+const char* url2 = "http://192.168.1.132/updateesp8266/lockunlock";
+
+// Definição do pino do botão (o flash é o GPIO 0 no ESP8266)
+const int buttonPin = 0;
+int buttonState = HIGH;  // Estado inicial do botão (puxado para alto)
+
+// Definição do LED interno (GPIO 2 no ESP8266)
+const int ledPin = LED_BUILTIN;
+
+void setup() {
+  // Inicializa a comunicação serial
+  Serial.begin(115200);
+  
+  // Configura o pino do botão como entrada com pull-up interno
+  pinMode(buttonPin, INPUT_PULLUP);
+  
+  // Configura o pino do LED interno como saída
+  pinMode(ledPin, OUTPUT);
+  
+  // Apaga o LED inicialmente (LED interno do ESP8266 é ativo-baixo)
+  digitalWrite(ledPin, HIGH);
+  
+  // Conecta-se à rede WiFi, o LED fica aceso durante a conexão
+  connectToWiFi();
+}
+
+void loop() {
+  // Verifica se o botão foi pressionado (nível baixo indica pressão)
+  if (digitalRead(buttonPin) == LOW) {
+    // Debounce: espera até que o botão seja liberado
+    delay(50); 
+    if (digitalRead(buttonPin) == LOW) {
+      // Envia a primeira solicitação
+      sendHttpRequest(url1);
+      
+      // Espera 3 segundos
+      delay(3000);
+      
+      // Envia a segunda solicitação
+      sendHttpRequest(url2);
+
+      // Espera até que o botão seja liberado
+      while (digitalRead(buttonPin) == LOW) {
+        delay(50);  // Pequeno atraso para evitar leitura errada
+      }
+
+      // Após o processamento, pisca o LED três vezes lentamente
+      blinkLedSlow(3);
+    }
+  }
+}
+
+// Função para conectar-se ao WiFi
+void connectToWiFi() {
+  Serial.print("Conectando-se a ");
+  Serial.println(ssid);
+  
+  // Acende o LED enquanto tenta conectar ao WiFi
+  digitalWrite(ledPin, LOW); // Liga o LED (ativo em nível baixo)
+  
+  WiFi.begin(ssid, password);
+
+  // Espera até que a conexão WiFi seja estabelecida
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.print(".");
+  }
+
+  // Apaga o LED quando a conexão for estabelecida
+  digitalWrite(ledPin, HIGH); // Desliga o LED
+
+  Serial.println("");
+  Serial.println("Conectado ao WiFi");
+  Serial.print("Endereço IP: ");
+  Serial.println(WiFi.localIP());
+}
+
+// Função para enviar requisições HTTP
+void sendHttpRequest(const char* url) {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+
+    Serial.print("Enviando solicitação para: ");
+    Serial.println(url);
+
+    // Faz a solicitação GET
+    http.begin(url);
+    int httpCode = http.GET();
+
+    // Verifica o código de resposta
+    if (httpCode > 0) {
+      Serial.printf("Código de resposta: %d\n", httpCode);
+      String payload = http.getString();
+      Serial.println("Resposta: " + payload);
+    } else {
+      Serial.printf("Falha na solicitação, erro: %s\n", http.errorToString(httpCode).c_str());
+    }
+
+    // Fecha a conexão
+    http.end();
+  } else {
+    Serial.println("Falha na conexão WiFi");
+  }
+}
+
+// Função para piscar o LED lentamente
+void blinkLedSlow(int times) {
+  for (int i = 0; i < times; i++) {
+    digitalWrite(ledPin, LOW);  // Liga o LED (LED_BUILTIN é ativo-baixo)
+    delay(500);                 // Mantém o LED aceso por 500ms
+    digitalWrite(ledPin, HIGH); // Desliga o LED
+    delay(500);                 // Mantém o LED apagado por 500ms
+  }
+}
