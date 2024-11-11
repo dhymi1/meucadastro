@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de 20%</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f3f4f6;
+        }
+        /* Desabilitar seleção de texto e zoom */
+        body, * {
+            user-select: none; 
+            -webkit-user-select: none; 
+            -ms-user-select: none; 
+            -moz-user-select: none; 
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+            touch-action: none;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 320px;
+            text-align: center;
+        }
+        .container h1 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        .input-container {
+            display: flex;
+            margin-bottom: 15px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .input-container input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.1em;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            text-align: right;
+        }
+        .input-container input[type="number"]:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        .result {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #007bff;
+            margin-top: 15px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            color: #fff;
+            background: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        button:active {
+            background: #004085;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de 20%</h1>
+        <div class="input-container">
+            <input type="number" id="inputValue" placeholder="Digite um valor" oninput="calculatePercentage()">
+        </div>
+        <div class="result" id="result">20% do valor: R$ 0.00</div>
+        <button onclick="clearInput()">Limpar</button>
+    </div>
+    
+    <script>
+        function calculatePercentage() {
+            const input = document.getElementById("inputValue").value;
+            const result = document.getElementById("result");
+            
+            if (input) {
+                const percentage = parseFloat(input) * 0.2;
+                result.textContent = `20% do valor: R$ ${percentage.toFixed(2)}`;
+            } else {
+                result.textContent = "20% do valor: R$ 0.00";
+            }
+        }
+
+        function clearInput() {
+            document.getElementById("inputValue").value = "";
+            document.getElementById("result").textContent = "20% do valor: R$ 0.00";
+        }
+    </script>
+</body>
+</html>
